@@ -59,3 +59,50 @@ A simple and interactive **Password Generator** tool built using **Python** and 
 - **Selected Character Types**: Uppercase, Lowercase, Numbers, Special Characters
 
 Generated password example: sT531@$scboi
+
+## Contributing
+
+Contributions are welcome! If you'd like to improve this project, feel free to follow these steps:
+
+1. **Fork the repository**: Click on the "Fork" button at the top of the repository page to create a copy of this project under your GitHub account.
+   
+2. **Clone your fork**:
+    ```bash
+    git clone https://github.com/your-username/password-generator.git
+    ```
+   
+3. **Create a new branch**: Create a new branch for your feature or bugfix.
+    ```bash
+    git checkout -b my-feature-branch
+    ```
+
+4. **Make your changes**: Make the necessary changes and improvements to the code.
+
+5. **Commit your changes**: Ensure your commit messages are clear and concise.
+    ```bash
+    git commit -am "Add your message here"
+    ```
+
+6. **Push your changes**:
+    ```bash
+    git push origin my-feature-branch
+    ```
+
+7. **Create a pull request**: Go to your repository on GitHub and create a pull request to merge your changes into the original repository.
+
+### Guidelines for Contributions:
+- **Code Style**: Please follow Python's [PEP8](https://peps.python.org/pep-0008/) style guide.
+- **Testing**: If you're adding new functionality, please ensure to write tests and verify they pass.
+- **Issue Tracking**: If you notice any issues, please feel free to [open an issue](https://github.com/AdityaPandey261/password-generator/issues) first before submitting a pull request.
+
+Please ensure that your code follows the existing style and includes tests for new features. If you find any issues or bugs, feel free to open an issue before submitting a pull request.
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Acknowledgements
+
+- This project uses Python's **Tkinter** library for the graphical user interface.
+- **random** and **string** modules are used to generate random passwords with the specified character set.
+
