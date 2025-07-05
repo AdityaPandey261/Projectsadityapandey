@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Add Expense - Personal Expense Tracker</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+</head>
+<body>
+    <header>
+        <h1>Add New Expense</h1>
+        <nav>
+            <a href="{{ url_for('index') }}">Home</a> |
+            <a href="{{ url_for('add_expense') }}">Add New Expense</a>
+        </nav>
+    </header>
+    <main>
+        {% with messages = get_flashed_messages() %}
+          {% if messages %}
+            <ul class="flashes">
+            {% for message in messages %}
+              <li>{{ message }}</li>
+            {% endfor %}
+            </ul>
+          {% endif %}
+        {% endwith %}
+        <form action="{{ url_for('add_expense') }}" method="post" class="form">
+            <label for="date">Date <span class="required">*</span></label>
+            <input type="date" id="date" name="date" required />
+
+            <label for="amount">Amount (₹) <span class="required">*</span></label>
+            <input type="number" id="amount" name="amount" step="0.01" min="0" required />
+
+            <label for="category">Category <span class="required">*</span></label>
+            <input type="text" id="category" name="category" placeholder="e.g., Food, Travel, Utilities" required />
+
+            <label for="description">Description</label>
+            <textarea id="description" name="description" rows="4"></textarea>
+
+            <button type="submit">Add Expense</button>
+        </form>
+    </main>
+    <footer>
+        <p>Personal Expense Tracker &copy; 2025</p>
+    </footer>
+</body>
+</html>

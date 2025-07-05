@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Analyze Expenses - Personal Expense Tracker</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- Include Chart.js from CDN -->
+</head>
+<body>
+    <header>
+        <h1>Analyze Expenses</h1>
+        <nav>
+            <a href="{{ url_for('index') }}">Home</a> |
+            <a href="{{ url_for('add_expense') }}">Add New Expense</a>
+        </nav>
+    </header>
+    <main>
+        <section class="summary">
+            <h2>Total Expenses: ₹{{ '{:.2f}'.format(total_expense) }}</h2>
+            <canvas id="expenseChart" width="400" height="200"></canvas>
+        </section>
+    </main>
+    <footer>
+        <p>Personal Expense Tracker &copy; 2024</p>
+    </footer>
+
+    <script>
+        const ctx = document.getElementById('expenseChart').getContext('2d');
+        const categories = {{ categories|tojson }}; // This will now work correctly
+    
+        const labels = categories.map(category => category['category']);
+        const data = categories.map(category => category['total']);
+    
+        const expenseChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: labels,
+                datasets: [{
+                    label: 'Expenses by Category',
+                    data: data,
+                    backgroundColor: 'rgba(40, 82, 122, 0.6)',
+                    borderColor: 'rgba(40, 82, 122, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
+    
+</body>
+</html>
